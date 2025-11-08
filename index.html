@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Happy Birthday</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+
+    <style>
+   #header {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.8s ease;
+    }
+    #header.visible {
+      pointer-events: auto;
+      opacity: 1;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #ffd1dc, #ffb7c5);
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: #8a1c4a;
+    }
+
+    /* Password Modal */
+    .password-modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255, 182, 193, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    .password-modal.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .password-content {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      animation: bounceIn 1s forwards;
+    }
+
+    .password-content h2 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #d81b60;
+    }
+
+    .password-input {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #ffb7c5;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      font-size: 16px;
+      text-align: center;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .password-input:focus { border-color: #d81b60; }
+
+    .submit-btn {
+      background: #d81b60;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .submit-btn:hover {
+      background: #b71550;
+      transform: scale(1.05);
+    }
+
+    /* Hide Hero initially */
+    #hero {
+      display: none;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    #hero.visible {
+      display: block;
+      opacity: 1;
+    }
+
+    /* Animations */
+    @keyframes bounceIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      60% { transform: scale(1.05); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">For You, My Love</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#hero" class="">Home</a></li>
+          <li><a href="index.html#about" class="">Message</a></li>
+          <li><a href="index.html#portfolio" class="">Memories</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+
+  <!-- Password Modal -->
+  <div class="password-modal" id="passwordModal">
+    <div class="password-content">
+      <h2>Enter the secret code 💌</h2>
+      <input type="password" class="password-input" id="passwordInput" placeholder="Our special word...">
+      <button class="submit-btn" id="submitPassword">Enter</button>
+    </div>
+  </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="section hero">
+
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+            <h1 class="">Celebrate Life’s Special Momentss</h1>
+            <p>Welcome to a space made with love — where birthdays shine brighter and memories last forever.</p>
+            <div class="d-flex">
+              <!-- <a href="index.html#about" class="btn-get-started">Get Started</a>
+              <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
+            </div>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 hero-img">
+            <img src="assets/img/hero-img.svg" class="img-fluid animated" alt="">
+          </div>
+        </div>
+      </div>
+    </section><!-- /Hero Section -->
+
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Message</h2>
+          <h3>From My Heart <span>To You</span></h3>
+          <p>
+            Happy Birthday, my love! 🎂💞 Today is your day — a celebration of your beautiful soul, your laughter, 
+            and the light you bring into my life every single day.
+          </p>
+        </div>
+
+        <div class="row content">
+          <!-- Left column -->
+          <div class="col-lg-6 border-end border-2" style="border-color: #f8c4d8;">
+            <p>
+              Every moment with you feels like a blessing. You’ve turned my ordinary days into something magical 
+              — full of smiles, late-night talks, and memories I’ll cherish forever.
+            </p>
+            <ul>
+              <li><i class="ri-heart-2-fill"></i> You make my world brighter just by being in it.</li>
+              <li><i class="ri-heart-2-fill"></i> Your love is my favorite comfort, my peace, and my joy.</li>
+              <li><i class="ri-heart-2-fill"></i> I’m beyond grateful to share this life and this special day with you.</li>
+            </ul>
+          </div>
+
+          <!-- Right column -->
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <p>
+              No words will ever be enough to describe how much you mean to me.  
+              But today, I just want you to know that you are deeply loved — more than you can imagine.  
+              Here’s to more laughter, adventures, and birthdays together. 💕
+            </p>
+            <a href="#" class="btn-learn-more">Happy Birthday, My Love!</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- extra vertical space -->
+      <div class="my-5"></div>
+    </section>
+
+  
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Memories</h2>
+        <p> A little gallery celebrating you — your smile, your charm, and the moments that make you so special. 💕  
+        Every picture is a reminder of how amazing you are. 🎉</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/1.jpeg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="assets/img/portfolio/1.jpeg" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="javascript:void(0)" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/2.jpeg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="assets/img/portfolio/2.jpeg" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="javascript:void(0)" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/3.jpeg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="assets/img/portfolio/3.jpeg" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="javascript:void(0)" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/4.jpeg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="assets/img/portfolio/4.jpeg" title="" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="javascript:void(0)" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/5.jpeg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="assets/img/portfolio/5.jpeg" title="" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="javascript:void(0)" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/6.jpeg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="assets/img/portfolio/6.jpeg" title="" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="javascript:void(0)" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/7.jpeg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="assets/img/portfolio/7.jpeg" title="" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="javascript:void(0)" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+           <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/8.jpeg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="assets/img/portfolio/8.jpeg" title="" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="javascript:void(0)" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/9.jpeg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="assets/img/portfolio/9.jpeg" title="" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="javascript:void(0)" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/10.jpeg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="assets/img/portfolio/10.jpeg" title="" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="javascript:void(0)" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/11.jpeg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="assets/img/portfolio/11.jpeg" title="" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="javascript:void(0)" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/12.jpeg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="assets/img/portfolio/12.jpeg" title="" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="javascript:void(0)" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/13.jpeg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="assets/img/portfolio/13.jpeg" title="" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="javascript:void(0)" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/14.jpeg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="assets/img/portfolio/14.jpeg" title="" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="javascript:void(0)" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/15.jpeg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="assets/img/portfolio/15.jpeg" title="" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="javascript:void(0)" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/16.jpeg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="assets/img/portfolio/16.jpeg" title="" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="javascript:void(0)" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/17.jpeg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="assets/img/portfolio/17.jpeg" title="" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="javascript:void(0)" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/18.jpeg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="assets/img/portfolio/18.jpeg" title="" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="javascript:void(0)" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/19.jpeg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="assets/img/portfolio/19.jpeg" title="" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="javascript:void(0)" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/20.jpeg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="assets/img/portfolio/20.jpeg" title="" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="javascript:void(0)" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/21.jpeg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="assets/img/portfolio/21.jpeg" title="" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="javascript:void(0)" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+          </div><!-- End Portfolio Container -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Section -->
+  </main>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const passwordModal = document.getElementById('passwordModal');
+  const hero = document.getElementById('hero');
+  const passwordInput = document.getElementById('passwordInput');
+  const submitPassword = document.getElementById('submitPassword');
+  const header = document.getElementById('header'); // Navbar
+
+  // Hide navbar initially (ensure it's hidden during the modal)
+  header.classList.remove('visible');
+
+  submitPassword.addEventListener('click', function() {
+    if (passwordInput.value.toLowerCase() === '') {
+      passwordModal.classList.add('hidden'); // Hide the modal
+      setTimeout(() => {
+        passwordModal.style.display = 'none'; // Actually remove it from the layout
+
+        // Show navbar and hero section
+        header.classList.add('visible');
+        hero.classList.add('visible');
+      }, 10); // You can reduce this delay if you want a quicker reveal
+    } else {
+      // Wrong password feedback
+      passwordInput.value = '';
+      passwordInput.placeholder = 'Try again, my love...';
+      passwordInput.style.borderColor = '#ff4d4d';
+      setTimeout(() => {
+        passwordInput.style.borderColor = '#ffb7c5';
+        passwordInput.placeholder = 'Our special word...';
+      }, 1500);
+    }
+  });
+
+  // Allow pressing Enter to submit
+  passwordInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      submitPassword.click();
+    }
+  });
+});
+</script>
+</html>
